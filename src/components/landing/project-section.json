@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_landing_project_sections",
+  "info": {
+    "displayName": "project-section",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "projects": {
+      "type": "component",
+      "component": "landing.project",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

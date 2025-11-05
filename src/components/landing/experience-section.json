@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_landing_experience_sections",
+  "info": {
+    "displayName": "experience-section",
+    "icon": "connector"
+  },
+  "options": {},
+  "attributes": {
+    "experiences": {
+      "type": "component",
+      "component": "landing.experience",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_landing_projects",
+  "info": {
+    "displayName": "project",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "link": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean",
+      "default": false
+    },
+    "tags": {
+      "type": "json"
+    }
+  },
+  "config": {}
+}
