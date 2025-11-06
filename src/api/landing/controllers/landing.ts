@@ -1,42 +1,49 @@
-'use strict';
+import { factories } from '@strapi/strapi';
 
-const { createCoreController } = require('@strapi/strapi').factories;
+export default factories.createCoreController('api::landing.landing', ({ strapi }: { strapi: any }) => ({
+  async findByPage(ctx: any) {
+    const { page } = ctx.params;
+    
+    ctx.query = {
+      ...ctx.query,
+      filters: {
+        page: { $eq: page }
+      },
+      pagination: {
+        limit: 1
+      }
+    };
 
-module.exports = createCoreController('api::landing.landing', ({ strapi }) => ({
-  async find(ctx) {
     const { data } = await super.find(ctx);
 
-    const transformedData = data.map(item => {
-      const transformed = {
-        id: item.id,
-        documentId: item.documentId,
-        createdAt: item.createdAt,
-        updatedAt: item.updatedAt,
-        publishedAt: item.publishedAt,
-        locale: item.locale,
-        page: item.page
-      };
+    if (!data || data.length === 0) {
+      return ctx.notFound('Landing page not found');
+    }
 
-      // Extrair dinamicamente todos os componentes
-      item.components?.forEach(component => {
-        const componentType = component.__component.split('.')[1]; // 'project-section' -> 'projects'
-        
-        // Pegar a chave principal do componente (projects, experiences, contacts, etc)
-        const dataKey = Object.keys(component).find(key => 
-          Array.isArray(component[key]) && key !== '__component'
-        );
-        
-        if (dataKey) {
-          transformed[dataKey] = component[dataKey];
-        }
-      });
+    const item = data[0];
+    const transformed: {[key: string]: any} = {
+      id: item.id,
+      documentId: item.documentId,
+      createdAt: item.createdAt,
+      updatedAt: item.updatedAt,
+      publishedAt: item.publishedAt,
+      locale: item.locale,
+      page: item.page
+    };
 
-      return transformed;
+    item.components?.forEach((component: any) => {
+      const dataKey = Object.keys(component).find(key => 
+        Array.isArray(component[key]) && key !== '__component'
+      );
+      
+      if (dataKey) {
+        transformed[dataKey] = component[dataKey];
+      }
     });
 
     return {
-      data: transformedData,
-      meta: ctx.response.body?.meta || {}
+      data: transformed,
+      meta: {}
     };
   }
 }));
