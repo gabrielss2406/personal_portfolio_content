@@ -1,10 +1,10 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface LandingContactSection extends Struct.ComponentSchema {
-  collectionName: 'components_landing_contact_sections';
+export interface LandingContact extends Struct.ComponentSchema {
+  collectionName: 'components_landing_contacts';
   info: {
-    displayName: 'contact-section';
-    icon: 'archive';
+    displayName: 'contact';
+    icon: 'shoppingCart';
   };
   attributes: {
     color: Schema.Attribute.String;
@@ -12,6 +12,17 @@ export interface LandingContactSection extends Struct.ComponentSchema {
     label: Schema.Attribute.String;
     link: Schema.Attribute.String;
     value: Schema.Attribute.String;
+  };
+}
+
+export interface LandingContactSection extends Struct.ComponentSchema {
+  collectionName: 'components_landing_contact_sections';
+  info: {
+    displayName: 'contact-section';
+    icon: 'archive';
+  };
+  attributes: {
+    contacts: Schema.Attribute.Component<'landing.contact', true>;
   };
 }
 
@@ -70,6 +81,7 @@ export interface LandingProjectSection extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'landing.contact': LandingContact;
       'landing.contact-section': LandingContactSection;
       'landing.experience': LandingExperience;
       'landing.experience-section': LandingExperienceSection;

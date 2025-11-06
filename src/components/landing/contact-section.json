@@ -6,20 +6,10 @@
   },
   "options": {},
   "attributes": {
-    "icon": {
-      "type": "string"
-    },
-    "label": {
-      "type": "string"
-    },
-    "value": {
-      "type": "string"
-    },
-    "link": {
-      "type": "string"
-    },
-    "color": {
-      "type": "string"
+    "contacts": {
+      "type": "component",
+      "component": "landing.contact",
+      "repeatable": true
     }
   },
   "config": {}
