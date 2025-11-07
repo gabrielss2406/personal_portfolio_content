@@ -28,6 +28,9 @@ export default factories.createCoreService('api::landing.landing', ({ strapi }) 
             'landing.activities-section': {
               populate: '*',
             },
+            'landing.education-section': {
+              populate: '*',
+            },
           }
         }
       }
