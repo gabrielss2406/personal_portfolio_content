@@ -72,6 +72,7 @@ export interface LandingExperience extends Struct.ComponentSchema {
     company: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     duration: Schema.Attribute.String;
+    tags: Schema.Attribute.JSON;
     title: Schema.Attribute.String;
   };
 }
