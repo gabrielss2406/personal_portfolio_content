@@ -35,7 +35,8 @@
       "components": [
         "landing.project-section",
         "landing.experience-section",
-        "landing.contact-section"
+        "landing.contact-section",
+        "landing.activities-section"
       ]
     }
   }

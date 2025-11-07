@@ -451,6 +451,7 @@ export interface ApiLandingLanding extends Struct.CollectionTypeSchema {
         'landing.project-section',
         'landing.experience-section',
         'landing.contact-section',
+        'landing.activities-section',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{

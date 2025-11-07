@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-11-06T17:45:30.287Z"
+    "x-generation-date": "2025-11-07T14:59:24.150Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -2105,6 +2105,9 @@
                     },
                     {
                       "$ref": "#/components/schemas/LandingContactSectionComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/LandingActivitiesSectionComponent"
                     }
                   ]
                 },
@@ -2113,7 +2116,8 @@
                   "mapping": {
                     "landing.project-section": "#/components/schemas/LandingProjectSectionComponent",
                     "landing.experience-section": "#/components/schemas/LandingExperienceSectionComponent",
-                    "landing.contact-section": "#/components/schemas/LandingContactSectionComponent"
+                    "landing.contact-section": "#/components/schemas/LandingContactSectionComponent",
+                    "landing.activities-section": "#/components/schemas/LandingActivitiesSectionComponent"
                   }
                 }
               },
@@ -2200,6 +2204,9 @@
                 },
                 {
                   "$ref": "#/components/schemas/LandingContactSectionComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/LandingActivitiesSectionComponent"
                 }
               ]
             },
@@ -2208,7 +2215,8 @@
               "mapping": {
                 "landing.project-section": "#/components/schemas/LandingProjectSectionComponent",
                 "landing.experience-section": "#/components/schemas/LandingExperienceSectionComponent",
-                "landing.contact-section": "#/components/schemas/LandingContactSectionComponent"
+                "landing.contact-section": "#/components/schemas/LandingContactSectionComponent",
+                "landing.activities-section": "#/components/schemas/LandingActivitiesSectionComponent"
               }
             }
           },
@@ -2275,6 +2283,9 @@
                       },
                       {
                         "$ref": "#/components/schemas/LandingContactSectionComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/LandingActivitiesSectionComponent"
                       }
                     ]
                   },
@@ -2283,7 +2294,8 @@
                     "mapping": {
                       "landing.project-section": "#/components/schemas/LandingProjectSectionComponent",
                       "landing.experience-section": "#/components/schemas/LandingExperienceSectionComponent",
-                      "landing.contact-section": "#/components/schemas/LandingContactSectionComponent"
+                      "landing.contact-section": "#/components/schemas/LandingContactSectionComponent",
+                      "landing.activities-section": "#/components/schemas/LandingActivitiesSectionComponent"
                     }
                   }
                 },
@@ -2603,6 +2615,26 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/LandingContactComponent"
+            }
+          }
+        }
+      },
+      "LandingActivitiesSectionComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string",
+            "enum": [
+              "landing.activities-section"
+            ]
+          },
+          "activities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LandingExperienceComponent"
             }
           }
         }

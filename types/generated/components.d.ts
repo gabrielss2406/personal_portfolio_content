@@ -1,5 +1,16 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface LandingActivitiesSection extends Struct.ComponentSchema {
+  collectionName: 'components_landing_activities_sections';
+  info: {
+    displayName: 'activities-section';
+    icon: 'arrowRight';
+  };
+  attributes: {
+    activities: Schema.Attribute.Component<'landing.experience', true>;
+  };
+}
+
 export interface LandingContact extends Struct.ComponentSchema {
   collectionName: 'components_landing_contacts';
   info: {
@@ -34,7 +45,7 @@ export interface LandingExperience extends Struct.ComponentSchema {
   };
   attributes: {
     company: Schema.Attribute.String;
-    description: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
     duration: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -59,7 +70,7 @@ export interface LandingProject extends Struct.ComponentSchema {
   };
   attributes: {
     active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    description: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     link: Schema.Attribute.String;
     tags: Schema.Attribute.JSON;
@@ -81,6 +92,7 @@ export interface LandingProjectSection extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'landing.activities-section': LandingActivitiesSection;
       'landing.contact': LandingContact;
       'landing.contact-section': LandingContactSection;
       'landing.experience': LandingExperience;
