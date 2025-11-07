@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-11-07T16:50:58.506Z"
+    "x-generation-date": "2025-11-07T17:17:43.131Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -2108,6 +2108,9 @@
                     },
                     {
                       "$ref": "#/components/schemas/LandingActivitiesSectionComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/LandingEducationSectionComponent"
                     }
                   ]
                 },
@@ -2117,7 +2120,8 @@
                     "landing.project-section": "#/components/schemas/LandingProjectSectionComponent",
                     "landing.experience-section": "#/components/schemas/LandingExperienceSectionComponent",
                     "landing.contact-section": "#/components/schemas/LandingContactSectionComponent",
-                    "landing.activities-section": "#/components/schemas/LandingActivitiesSectionComponent"
+                    "landing.activities-section": "#/components/schemas/LandingActivitiesSectionComponent",
+                    "landing.education-section": "#/components/schemas/LandingEducationSectionComponent"
                   }
                 }
               },
@@ -2207,6 +2211,9 @@
                 },
                 {
                   "$ref": "#/components/schemas/LandingActivitiesSectionComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/LandingEducationSectionComponent"
                 }
               ]
             },
@@ -2216,7 +2223,8 @@
                 "landing.project-section": "#/components/schemas/LandingProjectSectionComponent",
                 "landing.experience-section": "#/components/schemas/LandingExperienceSectionComponent",
                 "landing.contact-section": "#/components/schemas/LandingContactSectionComponent",
-                "landing.activities-section": "#/components/schemas/LandingActivitiesSectionComponent"
+                "landing.activities-section": "#/components/schemas/LandingActivitiesSectionComponent",
+                "landing.education-section": "#/components/schemas/LandingEducationSectionComponent"
               }
             }
           },
@@ -2286,6 +2294,9 @@
                       },
                       {
                         "$ref": "#/components/schemas/LandingActivitiesSectionComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/LandingEducationSectionComponent"
                       }
                     ]
                   },
@@ -2295,7 +2306,8 @@
                       "landing.project-section": "#/components/schemas/LandingProjectSectionComponent",
                       "landing.experience-section": "#/components/schemas/LandingExperienceSectionComponent",
                       "landing.contact-section": "#/components/schemas/LandingContactSectionComponent",
-                      "landing.activities-section": "#/components/schemas/LandingActivitiesSectionComponent"
+                      "landing.activities-section": "#/components/schemas/LandingActivitiesSectionComponent",
+                      "landing.education-section": "#/components/schemas/LandingEducationSectionComponent"
                     }
                   }
                 },
@@ -2635,6 +2647,46 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/LandingExperienceComponent"
+            }
+          }
+        }
+      },
+      "LandingEducationComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "degree": {
+            "type": "string"
+          },
+          "institution": {
+            "type": "string"
+          },
+          "duration": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "LandingEducationSectionComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string",
+            "enum": [
+              "landing.education-section"
+            ]
+          },
+          "educations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LandingEducationComponent"
             }
           }
         }

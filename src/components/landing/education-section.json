@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_landing_education_sections",
+  "info": {
+    "displayName": "education-section",
+    "icon": "chartPie"
+  },
+  "options": {},
+  "attributes": {
+    "educations": {
+      "type": "component",
+      "component": "landing.education",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

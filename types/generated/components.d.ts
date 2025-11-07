@@ -37,6 +37,31 @@ export interface LandingContactSection extends Struct.ComponentSchema {
   };
 }
 
+export interface LandingEducation extends Struct.ComponentSchema {
+  collectionName: 'components_landing_educations';
+  info: {
+    displayName: 'education';
+    icon: 'cloud';
+  };
+  attributes: {
+    degree: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    duration: Schema.Attribute.String;
+    institution: Schema.Attribute.String;
+  };
+}
+
+export interface LandingEducationSection extends Struct.ComponentSchema {
+  collectionName: 'components_landing_education_sections';
+  info: {
+    displayName: 'education-section';
+    icon: 'chartPie';
+  };
+  attributes: {
+    educations: Schema.Attribute.Component<'landing.education', true>;
+  };
+}
+
 export interface LandingExperience extends Struct.ComponentSchema {
   collectionName: 'components_landing_experiences';
   info: {
@@ -95,6 +120,8 @@ declare module '@strapi/strapi' {
       'landing.activities-section': LandingActivitiesSection;
       'landing.contact': LandingContact;
       'landing.contact-section': LandingContactSection;
+      'landing.education': LandingEducation;
+      'landing.education-section': LandingEducationSection;
       'landing.experience': LandingExperience;
       'landing.experience-section': LandingExperienceSection;
       'landing.project': LandingProject;

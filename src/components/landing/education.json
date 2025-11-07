@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_landing_educations",
+  "info": {
+    "displayName": "education",
+    "icon": "cloud"
+  },
+  "options": {},
+  "attributes": {
+    "degree": {
+      "type": "string"
+    },
+    "institution": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}
