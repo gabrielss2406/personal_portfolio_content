@@ -22,15 +22,17 @@
         "audios"
       ]
     },
-    "link": {
-      "type": "string"
-    },
     "active": {
       "type": "boolean",
       "default": false
     },
     "tags": {
       "type": "json"
+    },
+    "project_page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project-page.project-page"
     }
   },
   "config": {}

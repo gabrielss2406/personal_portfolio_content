@@ -98,7 +98,10 @@ export interface LandingProject extends Struct.ComponentSchema {
     active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    link: Schema.Attribute.String;
+    project_page: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::project-page.project-page'
+    >;
     tags: Schema.Attribute.JSON;
     title: Schema.Attribute.String;
   };
