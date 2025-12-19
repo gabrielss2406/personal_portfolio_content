@@ -14,13 +14,13 @@ export default factories.createCoreController('api::landing.landing', ({ strapi 
       }
     };
 
-    const { data } = await super.find(ctx);
+    const { results } = await strapi.service('api::landing.landing').find(ctx.query);
 
-    if (!data || data.length === 0) {
+    if (!results || results.length === 0) {
       return ctx.notFound('Landing page not found');
     }
 
-    const item = data[0];
+    const item = results[0];
     const transformed: {[key: string]: any} = {
       id: item.id,
       documentId: item.documentId,
@@ -32,12 +32,14 @@ export default factories.createCoreController('api::landing.landing', ({ strapi 
     };
 
     item.components?.forEach((component: any) => {
-      const dataKey = Object.keys(component).find(key => 
-        Array.isArray(component[key]) && key !== '__component'
-      );
-      
+      const { __component, id, ...rest } = component;
+      // Map the array data to the root based on existing naming convention
+      const dataKey = Object.keys(rest).find(key => Array.isArray(rest[key]));
       if (dataKey) {
-        transformed[dataKey] = component[dataKey];
+        transformed[dataKey] = rest[dataKey];
+      } else {
+        // Fallback: merge everything if no array is found
+        Object.assign(transformed, rest);
       }
     });
 

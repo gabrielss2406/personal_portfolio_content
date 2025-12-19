@@ -14,7 +14,10 @@ export default factories.createCoreService('api::landing.landing', ({ strapi }) 
               populate: {
                 projects: {
                   populate: {
-                    image: true
+                    image: true,
+                    project_page: {
+                      populate: '*'
+                    }
                   }
                 }
               }
