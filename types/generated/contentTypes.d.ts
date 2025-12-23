@@ -494,9 +494,12 @@ export interface ApiProjectPageProjectPage extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    active_live: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    github_url: Schema.Attribute.String;
+    live_url: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -510,6 +513,7 @@ export interface ApiProjectPageProjectPage extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    video_url: Schema.Attribute.String;
   };
 }
 

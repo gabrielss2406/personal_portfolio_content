@@ -27,6 +27,19 @@
         "videos",
         "audios"
       ]
+    },
+    "video_url": {
+      "type": "string"
+    },
+    "live_url": {
+      "type": "string"
+    },
+    "active_live": {
+      "type": "boolean",
+      "default": true
+    },
+    "github_url": {
+      "type": "string"
     }
   }
 }
