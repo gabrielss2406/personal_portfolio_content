@@ -46,6 +46,18 @@
     },
     "content": {
       "type": "richtext"
+    },
+    "authors": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.author"
+    },
+    "image_carousel": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
