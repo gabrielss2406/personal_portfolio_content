@@ -38,8 +38,8 @@
       "type": "boolean",
       "default": true
     },
-    "github_url": {
-      "type": "string"
+    "github_urls": {
+      "type": "json"
     }
   }
 }
