@@ -40,6 +40,9 @@
     },
     "github_urls": {
       "type": "json"
+    },
+    "description": {
+      "type": "richtext"
     }
   }
 }
