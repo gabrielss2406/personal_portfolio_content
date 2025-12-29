@@ -42,6 +42,9 @@
       "type": "json"
     },
     "description": {
+      "type": "text"
+    },
+    "content": {
       "type": "richtext"
     }
   }
