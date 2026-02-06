@@ -11,6 +11,31 @@ export interface LandingActivitiesSection extends Struct.ComponentSchema {
   };
 }
 
+export interface LandingCertification extends Struct.ComponentSchema {
+  collectionName: 'components_landing_certifications';
+  info: {
+    displayName: 'certification';
+    icon: 'quote';
+  };
+  attributes: {
+    date: Schema.Attribute.String;
+    issuer: Schema.Attribute.String;
+    link: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface LandingCertificationsSection extends Struct.ComponentSchema {
+  collectionName: 'components_landing_certifications_sections';
+  info: {
+    displayName: 'certifications-section';
+    icon: 'bold';
+  };
+  attributes: {
+    certifications: Schema.Attribute.Component<'landing.certification', true>;
+  };
+}
+
 export interface LandingContact extends Struct.ComponentSchema {
   collectionName: 'components_landing_contacts';
   info: {
@@ -118,10 +143,26 @@ export interface LandingProjectSection extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedAuthor extends Struct.ComponentSchema {
+  collectionName: 'components_shared_authors';
+  info: {
+    description: '';
+    displayName: 'Author';
+    icon: 'user';
+  };
+  attributes: {
+    github_url: Schema.Attribute.String;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    role: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'landing.activities-section': LandingActivitiesSection;
+      'landing.certification': LandingCertification;
+      'landing.certifications-section': LandingCertificationsSection;
       'landing.contact': LandingContact;
       'landing.contact-section': LandingContactSection;
       'landing.education': LandingEducation;
@@ -130,6 +171,7 @@ declare module '@strapi/strapi' {
       'landing.experience-section': LandingExperienceSection;
       'landing.project': LandingProject;
       'landing.project-section': LandingProjectSection;
+      'shared.author': SharedAuthor;
     }
   }
 }

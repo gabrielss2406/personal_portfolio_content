@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_landing_certifications_sections",
+  "info": {
+    "displayName": "certifications-section",
+    "icon": "bold"
+  },
+  "options": {},
+  "attributes": {
+    "certifications": {
+      "type": "component",
+      "component": "landing.certification",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

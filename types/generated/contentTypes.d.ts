@@ -453,6 +453,7 @@ export interface ApiLandingLanding extends Struct.CollectionTypeSchema {
         'landing.contact-section',
         'landing.activities-section',
         'landing.education-section',
+        'landing.certifications-section',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -495,10 +496,14 @@ export interface ApiProjectPageProjectPage extends Struct.CollectionTypeSchema {
   };
   attributes: {
     active_live: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    authors: Schema.Attribute.Component<'shared.author', true>;
+    content: Schema.Attribute.RichText;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    github_url: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    github_urls: Schema.Attribute.JSON;
+    image_carousel: Schema.Attribute.Media<'images', true>;
     live_url: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -780,6 +785,7 @@ export interface PluginUploadFile extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     ext: Schema.Attribute.String;
+    focalPoint: Schema.Attribute.JSON;
     folder: Schema.Attribute.Relation<'manyToOne', 'plugin::upload.folder'> &
       Schema.Attribute.Private;
     folderPath: Schema.Attribute.String &

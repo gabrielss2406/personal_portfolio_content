@@ -34,6 +34,9 @@ export default factories.createCoreService('api::landing.landing', ({ strapi }) 
             'landing.education-section': {
               populate: '*',
             },
+            'landing.certifications-section': {
+              populate: '*',
+            },
           }
         }
       }
