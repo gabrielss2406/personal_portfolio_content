@@ -19,6 +19,7 @@ export interface LandingCertification extends Struct.ComponentSchema {
   };
   attributes: {
     date: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
     issuer: Schema.Attribute.String;
     link: Schema.Attribute.String;
     title: Schema.Attribute.String;
